@@ -29,7 +29,7 @@ class Jupitr extends Client {
     this.commandHandler();
 
     this.on("ready", async () => {
-      console.log(`Client connecred as ${this.user.tag}`);
+      console.log(`Client connected as ${this.user.tag}`);
       this.user.setActivity("j!help", { type: "PLAYING" });
     });
 
@@ -42,9 +42,10 @@ class Jupitr extends Client {
       const args = message.content.slice(prefix.length).trim().split(/ +/);
       const lower = args.shift().toLowerCase();
 
+      let commandFiles;
       //Navigate the collection filled with commands, get them, and run the run function in them
       if (this.commands.has(lower)) {
-        const commandFiles = this.commands.get(lower);
+        commandFiles = this.commands.get(lower);
         commandFiles.run(this, message, args);
       }
     });
