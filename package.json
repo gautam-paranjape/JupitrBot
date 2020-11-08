@@ -1,0 +1,29 @@
+{
+  "name": "JupitrBot",
+  "version": "1.0.0",
+  "description": "General purpose discord bot filled with many features.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "push": "git push",
+    "deploy": "git push heroku master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gautam-paranjape/JupitrBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gautam-paranjape/JupitrBot/issues"
+  },
+  "homepage": "https://github.com/gautam-paranjape/JupitrBot#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
