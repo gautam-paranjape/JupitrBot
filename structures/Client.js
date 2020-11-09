@@ -1,6 +1,6 @@
 const { Collection, Client } = require("discord.js");
 const { prefix, token } = require("../config.json");
-
+const db = require("../db");
 class Jupitr extends Client {
   constructor() {
     super();
@@ -18,7 +18,7 @@ class Jupitr extends Client {
     this.fs.readdirSync("./Commands").map((directory) => {
       this.fs.readdirSync(`./Commands/${directory}/`).map((file) => {
         let CMD = require(`../Commands/${directory}/${file}`);
-        console.log(`Command ${CMD.name} loaded!`);
+        console.log(`Command ${CMD.name} loaded in ${directory}`);
 
         this.commands.set(CMD.name, CMD);
       });
@@ -30,7 +30,22 @@ class Jupitr extends Client {
 
     this.on("ready", async () => {
       console.log(`Client connected as ${this.user.tag}`);
-      this.user.setActivity("j!help", { type: "PLAYING" });
+
+      this.user.setPresence({
+        status: "online",
+        activity: {
+          name: "j!help | j!invite | j!support",
+          type: "PLAYING",
+        },
+      });
+
+      await db().then((mongoose) => {
+        try {
+          console.log(`Connected to MongoDB!`);
+        } finally {
+          mongoose.connection.close;
+        }
+      });
     });
 
     this.on("message", async (message) => {

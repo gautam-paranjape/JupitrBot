@@ -1,5 +1,6 @@
 const Client = require("../../structures/Client");
 const { MessageEmbed, Message } = require("discord.js");
+const { maincolor } = require("../../utils/colors");
 
 module.exports = {
   name: "ping",
@@ -21,7 +22,7 @@ module.exports = {
         msg.createdAt - message.createdAt
       } MS`
     );
-    ping.setColor(`e36e4b`);
+    ping.setColor(maincolor);
     ping.setFooter(`Requested by ${message.author.tag}`);
 
     await msg.edit(ping);

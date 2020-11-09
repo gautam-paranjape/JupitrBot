@@ -1,9 +1,10 @@
-const { MongoClient } = require("salvage.db");
-const db = new MongoClient({
-  schema: {
-    name: "Database",
-  },
-  mongoURI: "mongodb://localhost/botdbs",
-});
+const mongoose = require("mongoose");
+const { mongoURL } = require("./config.json");
 
-module.exports = db;
+module.exports = async () => {
+  await mongoose.connect(mongoURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  return mongoose;
+};
