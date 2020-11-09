@@ -8,6 +8,7 @@ class Jupitr extends Client {
     //Create collections
     this.commands = new Collection();
     this.aliases = new Collection();
+    this.snipes = new Collection();
 
     //Import modules
     this.fs = require("fs");
@@ -28,25 +29,11 @@ class Jupitr extends Client {
   initBot() {
     this.commandHandler();
 
-    this.on("ready", async () => {
-      console.log(`Client connected as ${this.user.tag}`);
-
-      this.user.setPresence({
-        status: "online",
-        activity: {
-          name: "j!help | j!invite | j!support",
-          type: "PLAYING",
-        },
-      });
-
-      await db().then((mongoose) => {
-        try {
-          console.log(`Connected to MongoDB!`);
-        } finally {
-          mongoose.connection.close;
-        }
-      });
+    ["event"].forEach((handler) => {
+      require(`../handlers/${handler}`)(this);
     });
+
+    this.on("ready", async () => {});
 
     this.on("message", async (message) => {
       //If the message comes from another bot or doesnt start with the prefix, then return

@@ -22,6 +22,7 @@
   "homepage": "https://github.com/gautam-paranjape/JupitrBot#readme",
   "dependencies": {
     "discord.js": "^12.4.1",
+    "mathjs": "^8.0.0",
     "mongoose": "^5.10.13",
     "ms": "^2.1.2",
     "random-puppy": "^1.1.0"

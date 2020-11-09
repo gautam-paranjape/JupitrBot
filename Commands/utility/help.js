@@ -15,10 +15,13 @@ module.exports = {
   run: async (client, message, args) => {
     const help = new MessageEmbed();
     help.setTitle("Commands");
-    help.addField("Fun", "`8ball`, `meme`, `roll`, `flip`");
+    help.addField(
+      "Fun",
+      "`8ball`, `meme`, `roll`, `flip`, `dog`, `cat`, `snipe`, `calc`"
+    );
     help.addField(
       "Utility",
-      "`ping`, `poll`, `clear`, `setprefix`, `giveaway`"
+      "`ping`, `poll`, `clear`, `setprefix`, `giveaway`, `createrole`, `slowmode`, `timer`"
     );
     help.addField(
       "Moderation",
