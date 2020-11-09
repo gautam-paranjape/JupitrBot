@@ -54,6 +54,10 @@ class Jupitr extends Client {
         return;
       }
 
+      if (!message.guild) {
+        return;
+      }
+
       const args = message.content.slice(prefix.length).trim().split(/ +/);
       const lower = args.shift().toLowerCase();
 
