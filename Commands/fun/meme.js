@@ -1,6 +1,6 @@
 const Client = require("../../structures/Client");
 const { MessageEmbed, Message } = require("discord.js");
-const randomPuppy = require("random-puppy");
+const grabber = require("image-grabberjs");
 
 module.exports = {
   name: "meme",
@@ -19,7 +19,7 @@ module.exports = {
     const randomReddit =
       subReddits[Math.floor(Math.random() * subReddits.length)];
 
-    const image = await randomPuppy(randomReddit);
+    const image = await grabber(randomReddit);
 
     const meme = new MessageEmbed();
     meme.setTitle(`A meme from /r/${randomReddit}`);

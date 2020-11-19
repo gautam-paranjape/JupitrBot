@@ -29,11 +29,19 @@ class Jupitr extends Client {
   initBot() {
     this.commandHandler();
 
-    ["event"].forEach((handler) => {
+    /*
+    ["event", "server"].forEach((handler) => {
+      require(`../handlers/${handler}`)(this);
+    });
+    */
+
+    ["server"].forEach((handler) => {
       require(`../handlers/${handler}`)(this);
     });
 
-    this.on("ready", async () => {});
+    this.on("ready", async () => {
+      require("../events/ready")(this);
+    });
 
     this.on("message", async (message) => {
       //If the message comes from another bot or doesnt start with the prefix, then return

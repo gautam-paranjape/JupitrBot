@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "serve": "nodemon handlers/server.js",
     "push": "git push",
     "deploy": "git push heroku master"
   },
@@ -21,7 +22,11 @@
   },
   "homepage": "https://github.com/gautam-paranjape/JupitrBot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
     "discord.js": "^12.4.1",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.2.7",
+    "image-grabberjs": "^1.0.5",
     "mathjs": "^8.0.0",
     "mongoose": "^5.10.13",
     "ms": "^2.1.2",

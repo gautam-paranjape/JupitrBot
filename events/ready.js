@@ -1,5 +1,5 @@
-const { prefix } = require("../../config.json");
-const db = require("../../db");
+const { prefix } = require("../config.json");
+const db = require("../db");
 
 module.exports = async (client) => {
   console.log(`Client connected as ${client.user.tag}`);

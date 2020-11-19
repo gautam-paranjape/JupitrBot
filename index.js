@@ -6,3 +6,5 @@ const newCalc = new Calculator();
 
 newCalc.startCalculator();
 newClient.initBot();
+
+module.exports = newClient;
