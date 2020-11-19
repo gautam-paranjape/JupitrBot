@@ -1,4 +1,3 @@
-const { prefix } = require("../config.json");
 const db = require("../db");
 
 module.exports = async (client) => {
