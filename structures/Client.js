@@ -1,6 +1,7 @@
 const { Collection, Client } = require("discord.js");
-const { prefix, token } = require("../config.json");
+//const { prefix, token } = require("../config.json");
 const db = require("../db");
+const prefix = process.env.prefix;
 class Jupitr extends Client {
   constructor() {
     super();
@@ -64,7 +65,7 @@ class Jupitr extends Client {
       }
     });
 
-    this.login(token);
+    this.login(process.env.token);
   }
 }
 

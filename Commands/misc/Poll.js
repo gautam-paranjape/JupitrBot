@@ -1,8 +1,9 @@
 const Client = require("../../structures/Client");
 const { MessageEmbed, Message, Util } = require("discord.js");
 const UtilityEmbed = require("../../utils/UtilityEmbeds");
-const { prefix } = require("../../config.json");
+//const { prefix } = require("../../config.json");
 const { maincolor } = require("../../utils/colors");
+const prefix = process.env.prefix;
 
 module.exports = {
   name: "poll",
